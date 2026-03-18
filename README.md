@@ -13,22 +13,23 @@ A simple Streamlit app that demonstrates secure password storage using **SHA-256
 * Unique salt for each user
 * No plain text password storage
 
-## ⚖️ Difference: Real Database vs This Project
+## 🔐 Security Difference (If Database is Hacked)
 
-* **Real Database:**
+* **Without Hashing (Normal Systems):**
 
-  * Stores data permanently
-  * Used in real-world applications
-  * Requires setup (MySQL, PostgreSQL, etc.)
+  * Passwords are stored in plain text
+  * If database is hacked → attacker can see all passwords
+  * High risk of account takeover
 
-* **This Project:**
+* **With Hashing (This Project):**
 
-  * Uses temporary session storage
-  * Data resets on refresh
-  * Built for demonstration of **security concepts**
+  * Only hashed passwords are stored
+  * Even if database is hacked → passwords are not readable
+  * Attacker cannot directly use the passwords
+  * Salting prevents common attacks like rainbow tables
 
-👉 Key point:
-**Security comes from hashing, not from the database itself.**
+👉 Key Idea:
+**Even if data is stolen, actual passwords remain protected.**
 
 ## 🛠️ Tech Stack
 
@@ -37,11 +38,11 @@ A simple Streamlit app that demonstrates secure password storage using **SHA-256
 
 ## ▶️ Run Locally
 
-```id="o48g4t"
+```id="xhhg3l"
 pip install streamlit
 streamlit run app.py
 ```
 
 ## ⚠️ Note
 
-This is a demo project. In real systems, databases and stronger hashing methods like bcrypt are used.
+This is a demo project with temporary storage. In real-world systems, databases and stronger hashing algorithms like bcrypt are used.
